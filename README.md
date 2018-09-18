@@ -1,8 +1,15 @@
 # console colors
 
+Tiny decorators library for browser console log.
+
+All the below API methods are chainable, and are supposed to be written before the `log()` method.
+*Mind that styling of console logs only works for primitive types*
+
 ![alt tag](https://raw.githubusercontent.com/yairEO/console-colors/master/demo.png)
 
     npm i @yaireo/console-colors --save
+
+
 
 # API
 
@@ -18,11 +25,11 @@
 
 These are methods for text colors 
 
-   (`console.blue.log("blue text")`)
+    console.blue.log("blue text")
 
 Each of the below colors can be used as background color as well:
 
-    `console.bgBlue.white("white text over blue background")`
+    console.bgBlue.white("white text over blue background")
 
 - `white` 
 - `black` 
@@ -37,6 +44,7 @@ Each of the below colors can be used as background color as well:
 - `cyan`  
 
 ## Special
+
 - `random` - picks a random text color
 - `bg` - picks a random background color
 
