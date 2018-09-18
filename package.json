@@ -1,0 +1,22 @@
+{
+    "name": "@yaireo/console-colors",
+    "version": "1.0.00",
+    "homepage": "https://github.com/yairEO/console-colors",
+    "description": "Colorize your browser's console logs",
+    "_npmUser": {
+        "name": "vsync",
+        "email": "vsync.design@gmail.com"
+    },
+    "author": {
+        "name": "Yair Even-Or",
+        "email": "vsync.design@gmail.com"
+    },
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yairEO/console-colors.git"
+    },
+    "bugs": {
+        "url": "https://github.com/yaireo/console-colors/issues"
+    }
+}
