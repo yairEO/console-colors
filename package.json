@@ -1,5 +1,5 @@
 {
-    "name": "@yaireo/console-colors",
+    "name": "console-colors",
     "version": "1.0.00",
     "homepage": "https://github.com/yairEO/console-colors",
     "description": "Colorize your browser's console logs",
