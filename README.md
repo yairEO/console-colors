@@ -1,14 +1,14 @@
-[![npm (scoped)](https://img.shields.io/npm/v/@yaireo/console-colors.svg)](https://www.npmjs.com/package/@yaireo/console-colors)
+# console colors [![npm (scoped)](https://img.shields.io/npm/v/@yaireo/console-colors.svg)](https://www.npmjs.com/package/@yaireo/console-colors)
 
-# console colors 
-
-##Tiny decorators library for modern browsers console logs
+## Tiny decorators library for modern browsers console logs
 
 All the below API methods are chainable, and are supposed to be written before the `log()` method.
 
-> - Mind that styling of console logs only works for primitive types
-> - The use of this utility is for modern browsers only
-> - I advise to carefully include this script in development *env* and not in production
+----
+- Mind that styling of console logs only works for primitive types
+- The use of this utility is for modern browsers only
+- I advise to carefully include this script in development *env* and not in production
+----
 
 ![alt tag](https://raw.githubusercontent.com/yairEO/console-colors/master/demo.png)
 
