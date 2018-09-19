@@ -32,11 +32,7 @@ All the below API methods are chainable, and are supposed to be written before t
 
 ## Styles
 
-- `bold`
-- `big` 
-- `italic`
-- `capitalize`
-- `shadow`
+`bold`, `big`, `italic`, `capitalize`, `shadow`
 
 ## Colors
 
@@ -48,17 +44,7 @@ Each of the below colors can be used as background color as well:
 
     console.bgBlue.white("white text over blue background")
 
-- `white` 
-- `black` 
-- `silver`
-- `gray`  
-- `red`   
-- `green` 
-- `blue`  
-- `gold`  
-- `yellow`
-- `pink`  
-- `cyan`  
+`white`, `black`, `silver`, `gray`, `red`, `green`, `blue`, `gold`, `yellow`, `pink`, `cyan`
 
 ## Special
 
