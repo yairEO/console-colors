@@ -9,7 +9,12 @@ All the below API methods are chainable, and are supposed to be written before t
 
     npm i @yaireo/console-colors --save
 
+## Usage
 
+    import consoleColor from './components/console';
+
+    const logger = consoleColor() // give the logger  
+    logger.red.bgWhite.bold.log(123)
 
 # API
 
