@@ -13,8 +13,13 @@ All the below API methods are chainable, and are supposed to be written before t
 
     import consoleColor from 'consoleColors';
 
+    // encapsulating the logger
     const logger = consoleColor() 
-    logger.red.bgWhite.bold.log(123)
+    logger.red.bgWhite.bold.log("this is the preffered way")
+
+    // or globally overloadnig the `console` object
+    consoleColor( window.console ) 
+    console.big.bold.silver.log("this is not very recommended")
 
 # API
 
