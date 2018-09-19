@@ -2,7 +2,7 @@
 
 Tiny decorators library for browser console log.
 
-All the below API methods are chainable, and are supposed to be written before the `log()` method.
+All the below API methods are chainable, and are supposed to be written before the `log()` method.<br>
 *Mind that styling of console logs only works for primitive types*
 
 ![alt tag](https://raw.githubusercontent.com/yairEO/console-colors/master/demo.png)
@@ -15,7 +15,7 @@ All the below API methods are chainable, and are supposed to be written before t
 
     // encapsulating the logger
     const logger = consoleColor() 
-    logger.red.bgWhite.bold.log("this is the preffered way")
+    logger.red.bgWhite.bold.log("this is the preferred way")
 
     // or globally overloadnig the `console` object
     consoleColor( window.console ) 
