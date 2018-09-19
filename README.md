@@ -17,7 +17,7 @@ All the below API methods are chainable, and are supposed to be written before t
     const logger = consoleColor() 
     logger.red.bgWhite.bold.log("this is the preferred way")
 
-    // or globally overloadnig the `console` object
+    // or globally overloading the `console` object
     consoleColor( window.console ) 
     console.big.bold.silver.log("this is not very recommended")
 
