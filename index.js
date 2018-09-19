@@ -67,7 +67,7 @@
             return obj[keys[ keys.length * Math.random() << 0]];
         };
 
-        const randomBg = (v) => `background:${ v || getRandomProperty(colors)}; padding:0 5px`;
+        const randomBg = (v) => `background:${ v || getRandomProperty(colors)}; padding:0 .6 0 0`;
         const userColor = (v) => `color:${v || getRandomProperty(colors)}`;
 
 
@@ -75,7 +75,7 @@
         for( let key in colors ){
             var bgKey = "bg" + key.replace(/\b\w/g, c => c.toUpperCase());
             lib[key] = `color:${colors[key]}`;
-            lib[bgKey] = `background:${colors[key]}; padding:0 5px`;
+            lib[bgKey] = `background:${colors[key]}; padding:0 .6em 0 0`;
         }
 
         // add lib's properties as method getters on the console's proxy object
@@ -84,7 +84,7 @@
         }
 
         define('bg', randomBg);
-        define('color', userColor);
+        define('random', userColor);
 
         // proxyC.color = function(s){
         //     if(s)

@@ -21,6 +21,8 @@ All the below API methods are chainable, and are supposed to be written before t
     consoleColor( window.console ) 
     console.big.bold.silver.log("this is not very recommended")
 
+### [Live Playground](https://d4268d27b69346278c2b60e6c4730a8c.production.codepen.codes)
+
 # API
 
 ## Styles
