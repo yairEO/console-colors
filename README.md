@@ -13,7 +13,7 @@ All the below API methods are chainable, and are supposed to be written before t
 
     import consoleColor from 'consoleColors';
 
-    const logger = consoleColor() // give the logger  
+    const logger = consoleColor() 
     logger.red.bgWhite.bold.log(123)
 
 # API
