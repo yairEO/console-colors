@@ -1,6 +1,6 @@
 [![npm (scoped)](https://img.shields.io/npm/v/@yaireo/console-colors.svg)](https://www.npmjs.com/package/@yaireo/console-colors)
 <h1 align="center">
-    `Console Colors 
+    Console Colors 
 </h1>
 
 ## Tiny decorators library for modern browsers console logs
