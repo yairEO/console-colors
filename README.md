@@ -1,4 +1,7 @@
-# console colors [![npm (scoped)](https://img.shields.io/npm/v/@yaireo/console-colors.svg)](https://www.npmjs.com/package/@yaireo/console-colors)
+[![npm (scoped)](https://img.shields.io/npm/v/@yaireo/console-colors.svg)](https://www.npmjs.com/package/@yaireo/console-colors)
+<h1 align="center">
+    `Console Colors 
+</h1>
 
 ## Tiny decorators library for modern browsers console logs
 
@@ -10,8 +13,10 @@ All the below API methods are chainable, and are supposed to be written before t
 - I advise to carefully include this script in development *env* and not in production
 ----
 
-![alt tag](https://raw.githubusercontent.com/yairEO/console-colors/master/demo.png)
-
+<p align="center">
+    <img src="/demo.png">
+<p>
+    
     npm i @yaireo/console-colors --save
 
 ## Usage
