@@ -3,8 +3,11 @@
     Console Colors 
 </h1>
 
-## Tiny decorators library for modern browsers console logs
+<p align="center">
+Tiny decorators library for modern browsers console logs
+</p>
 
+<br>
 All the below API methods are chainable, and are supposed to be written before the `log()` method.
 
 ----
