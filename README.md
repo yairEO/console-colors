@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="/demo.png">
+<p>
+    
 [![npm (scoped)](https://img.shields.io/npm/v/@yaireo/console-colors.svg)](https://www.npmjs.com/package/@yaireo/console-colors)
 <h1 align="center">
     Console Colors 
@@ -16,11 +20,9 @@ All the below API methods are chainable, and are supposed to be written before t
 - I advise to carefully include this script in development *env* and not in production
 ----
 
-<p align="center">
-    <img src="/demo.png">
-<p>
-    
-    npm i @yaireo/console-colors --save
+```bash 
+npm i @yaireo/console-colors --save
+```
 
 ## Usage
 
@@ -48,11 +50,15 @@ console.big.bold.silver.log("this is not very recommended")
 
 These are methods for text colors 
 
-    console.blue.log("blue text")
+```js  
+console.blue.log("blue text")
+```
 
 Each of the below colors can be used as background color as well:
 
-    console.bgBlue.white("white text over blue background")
+```js  
+console.bgBlue.white("white text over blue background")
+```
 
 `white`, `black`, `silver`, `gray`, `red`, `green`, `blue`, `gold`, `yellow`, `pink`, `cyan`
 
