@@ -5,6 +5,8 @@
  *  https://github.com/yairEO/console-colors
  */
 
+ xxx = Function.prototype.bind.call(console.log, console);
+
 ;(function(root, factory){
     var define = define || {};
     if( typeof define === 'function' && define.amd )
@@ -17,12 +19,14 @@
         root.consoleColor = factory();
 }(this, function(){
     function consoleColors(namespace){
-        namespace = namespace || {};
+        namespace = namespace || {}
 
-        const _log = window.console.log;
-        const _clear = window.console.clear;
+        const _log = window.console.log
+        const _warn = window.console.warn
+        const _clear = window.console.clear
 
-        const baseStyles = "border-radius:3px;";
+        const baseStyles = "border-radius:3px; padding: 0 3px;"
+
         var colors = {
             white  : "white",
             black  : "black",
@@ -45,37 +49,47 @@
             shadow     : 'text-shadow: -1px 1px rgba(0,0,0,.5)'
         }
 
-        var styles = baseStyles; // chained styles (per "console" are stored here)
+        var styles = baseStyles // chained styles (per "console" are stored here)
 
-        // this will protect against non-existing methods names or typos so the chain will not be harmed
+        // protect against non-existant methods (or typos) so the chain of methods will not be harmed
         const proxyC = new Proxy(namespace, {
-            get: (target, prop) => prop in target ? target[prop] : namespace
+            get(target, prop) {
+                // if (typeof target[prop] == 'function') {
+                //     return function () {
+                //         console.dir(arguments);
+                //         return target[prop].bind(target, arguments);
+                //       }
+                // }
+
+                return prop in target ? target[prop] : namespace
+            }
         })
 
         // define chainable methods on the proxy object
         const define = (name, value) => {
             Reflect.defineProperty(proxyC, name, {
                 get(){
-                    styles = styles + ";" + (typeof value == 'function' ? value() : value);
-                    return proxyC;
+                    styles = styles + ";" + (typeof value == 'function' ? value() : value)
+                    // proxyC.log = _log.bind(window.console, "%c%s", styles) // preserve file & line
+                    return proxyC
                 }
-            });
-        };
+            })
+        }
 
         var getRandomProperty = function(obj){
             var keys = Object.keys(obj)
-            return obj[keys[ keys.length * Math.random() << 0]];
-        };
+            return obj[keys[ keys.length * Math.random() << 0]]
+        }
 
-        const randomBg = (v) => `background:${ v || getRandomProperty(colors)}; padding:0 .6 0 0`;
-        const userColor = (v) => `color:${v || getRandomProperty(colors)}`;
+        const randomBg = (v) => `background:${ v || getRandomProperty(colors)}; padding:0 .6 0 0`
+        const userColor = (v) => `color:${v || getRandomProperty(colors)}`
 
 
         // add colors to the main lib
         for( let key in colors ){
             var bgKey = "bg" + key.replace(/\b\w/g, c => c.toUpperCase());
             lib[key] = `color:${colors[key]}`;
-            lib[bgKey] = `background:${colors[key]}; padding:0 .6em 0 0`;
+            lib[bgKey] = `background:${colors[key]};`;
         }
 
         // add lib's properties as method getters on the console's proxy object
@@ -83,8 +97,8 @@
             define(key, lib[key])
         }
 
-        define('bg', randomBg);
-        define('random', userColor);
+        define('bg', randomBg)
+        define('random', userColor)
 
         // proxyC.color = function(s){
         //     if(s)
@@ -93,38 +107,45 @@
         //     return proxyC
         // }
 
+        function print(args, method){
+            args = [...args]
+            // non-primitive values cannot be styled (unfortunately)
+            var isValid = args.some(v => "string number boolean symbol undefined".includes(typeof v) || v === null),
+                currentStyles = styles;
+
+            styles = baseStyles
+
+            return isValid
+                ? method.bind(window.console, "%c " + args.join(" "), currentStyles)
+                : method.bind(window.console, ...args)
+        }
 
         /**
          * Actual console wrapper methods
          */
         proxyC.log = function(){
-            var args = [...arguments],
-                // non-primitive values cannot be styled unfortunately
-                isValid = args.some(v => typeof v == "string" || typeof v == "number" || typeof v == "boolean" || typeof v == "symbol" || typeof v == "undefined" || v === null );
+            return print(arguments, _log)
+        }
 
-            if( isValid )
-                _log("%c " + args.join(" "), styles);
-            else
-                _log(...args);
-
-            styles = baseStyles;
+        proxyC.warn = function(){
+            return print(arguments, _warn)
         }
 
         proxyC.clear = function(){
             _clear();
             arguments[0] && proxyC.log.apply(null, arguments)
-            styles = baseStyles;
+            styles = baseStyles
         }
 
         proxyC.json = function(){
             const value = [...arguments].map(v => JSON.stringify(v) ).join(" \n\n ")
             proxyC.log.call(null, value)
-            styles = baseStyles;
+            styles = baseStyles
         }
 
         // override the console with the overloaded proxyC
-        return proxyC;
+        return proxyC
     }
 
-    return consoleColors;
+    return consoleColors
 }));
